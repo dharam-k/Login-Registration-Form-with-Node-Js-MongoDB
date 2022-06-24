@@ -1,0 +1,23 @@
+1. install node js
+https://nodejs.org/en/download/
+
+install nodemon for globally by cmd(open cmd and run this command) 
+npm i -g nodemon 
+
+
+2. install mongodb community
+https://www.mongodb.com/try/download/community
+create a database
+
+3. change .env file
+=> db url 
+
+4. change in config file 
+dbname
+
+5. run this command for install all package which is used in program automatically 
+npm install
+
+6. run the whole code command
+npm run dev
+
