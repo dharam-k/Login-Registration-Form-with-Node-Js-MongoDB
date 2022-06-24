@@ -1,0 +1,25 @@
+
+<%- include('./partials/navbar.ejs') %>
+<%- include('./partials/header.ejs') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h1>Login Page</h1>
+            <hr>
+            <form class="w-50" method="post" action="/login">
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control"  name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs') %>
