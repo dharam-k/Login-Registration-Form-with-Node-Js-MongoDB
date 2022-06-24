@@ -12,7 +12,7 @@ create a database
 3. change .env file
 => db url 
 
-4. change in config file 
+4. change in config file (DBConfig.js)
 dbname
 
 5. run this command for install all package which is used in program automatically 
