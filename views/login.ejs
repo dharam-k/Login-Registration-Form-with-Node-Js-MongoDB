@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <h1>Login Page</h1>
             <hr>
-            <form class="w-50" method="post" action="/login">
+            <form class="w-50" method="post" action="/dashboard">
                 <div class="mb-3">
                   <label class="form-label">Email</label>
                   <input type="email" class="form-control" name="email">
@@ -19,19 +19,46 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             <br>
-            <div id="g_id_onload"
-              data-client_id="766265565166-hlp6lnbithpd8g892cb6ngi3rkilvvgg.apps.googleusercontent.com"
-              data-login_uri="http://localhost:5000"
-              data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin"
-              data-type="standard"
-              data-size="large"
-              data-theme="outline"
-              data-text="sign_in_with"
-              data-shape="rectangular"
-              data-logo_alignment="left">
-            </div>
+
+            <table class="table">
+              <tr>
+                <td><h5 id="name"></h5></td>
+                <td><h5 id="email"></h5></td>
+                <td><img src="" id="picture"></td>
+              </tr>
+            </table>
+
+
+         <div id="buttonDiv"></div> 
+            <script>
+              function handleCredentialResponse(response) {
+                $.ajax({
+                  type: 'POST',
+                  url: '/google/'+response.credential,
+                  success: function(resp) {
+                    console.log(resp.name)
+                    console.log(resp.email)
+                    console.log(resp.picture)
+                  }
+                });
+                console.log("Encoded JWT ID token: " + response.credential);
+              }
+
+              window.onload = function () {
+                google.accounts.id.initialize({
+                  client_id: "766265565166-hlp6lnbithpd8g892cb6ngi3rkilvvgg.apps.googleusercontent.com",
+                  callback: handleCredentialResponse
+                });
+
+                google.accounts.id.renderButton(
+                  document.getElementById("buttonDiv"),
+                  { theme: "outline", size: "large" }  // customization attributes
+                );
+                
+                // google.accounts.id.prompt(); // also display the One Tap dialog
+              }
+          </script>
+        
         </div>
     </div>
 </div>

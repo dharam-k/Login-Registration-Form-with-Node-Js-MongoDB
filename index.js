@@ -1,6 +1,7 @@
 import express from "express";
 import web from "./routes/web.js";
 import connectDB from "./config/DBConfig.js";
+import path from 'path';
 import session from "express-session";
 import env from 'dotenv';
 env.config();
